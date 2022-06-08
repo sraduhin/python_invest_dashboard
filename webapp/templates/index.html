@@ -21,8 +21,12 @@
                 <p>{{ tiker}}{{ base_currency }}: {{ 1 / currencies[tiker] }}</p> 
                 {% endfor %}
             </div>
+            <div class="row">
+                {% for security in securities %}
+                <p>FIGI: {{ security.figi }} blocked: {{ security.blocked }} total: {{ security.balance }}</p> 
+                {% endfor %}
+            </div>
         </div>
-        <div>{{ portfolio }}</div>
     </div>
 </body>
 

@@ -21,14 +21,14 @@ def get_currencies(symbols, base):
     Документация к API https://apilayer.com/marketplace/fixer-api?preview=true#
 
     """
-    url = config.currencies_URL
+    url = config.CURRENCIES_URL
     params = {
         'symbols': symbols,
         'base': base
     }
     payload = {}
     headers= {
-    "apikey": config.currencies_API_KEY
+    "apikey": config.CURRENCIES_API_KEY
     }
 
     try:

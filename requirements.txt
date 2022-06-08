@@ -3,3 +3,4 @@ Flask==2.1.2
 requests==2.27.1
 tinkoff-investments==0.2.0b29
 jupyter==1.0.0
+flask-sqlalchemy

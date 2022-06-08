@@ -1,5 +1,6 @@
 from tinkoff.invest import Client
 from flask import current_app
+from webapp.model import db, Securities
 
 def get_portfolio():
     TOKEN = current_app.config['TINKOFF_API_KEY']
@@ -19,13 +20,18 @@ def get_portfolio():
                     accounts_with_access.append(account.id)
             return accounts_with_access
         accounts_with_access = findAccountsWithReadOnlyLevel(accounts)
-        portfolios = []
         for account in accounts_with_access:
-            portfolio = client.operations.get_portfolio(account_id=account)
+            #portfolio = client.operations.get_portfolio(account_id=account)
             positions = client.operations.get_positions(account_id=account)
-            print(positions)
-        return positions
+            positions = positions.securities
+            #return positions
+            for position in positions:
+                figi = position.figi
+                blocked = position.blocked
+                balance = position.balance
+                save_securities(figi, blocked, balance)
 
-
-if __name__ == "__main__":
-    get_portfolio()
+def save_securities(figi, blocked, balance):
+    position_securities = Securities(figi=figi, blocked=blocked, balance=balance)
+    db.session.add(position_securities)
+    db.session.commit()
