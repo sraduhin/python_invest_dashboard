@@ -1,5 +1,5 @@
 import requests
-import settings
+import webapp.config as config
 
 def get_currencies(symbols, base):
     """
@@ -21,14 +21,14 @@ def get_currencies(symbols, base):
     Документация к API https://apilayer.com/marketplace/fixer-api?preview=true#
 
     """
-    url = settings.currencies_URL
+    url = config.currencies_URL
     params = {
         'symbols': symbols,
         'base': base
     }
     payload = {}
     headers= {
-    "apikey": settings.currencies_API_KEY
+    "apikey": config.currencies_API_KEY
     }
 
     try:

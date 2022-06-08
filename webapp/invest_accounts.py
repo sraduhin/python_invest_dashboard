@@ -1,10 +1,8 @@
-from turtle import pos, position
 from tinkoff.invest import Client
-import settings
+from flask import current_app
 
-TOKEN = settings.tinkoff_IIA_API_KEY
-
-def main():
+def get_portfolio():
+    TOKEN = current_app.config['TINKOFF_API_KEY']
     with Client(TOKEN) as client:
         accounts = client.users.get_accounts().__dict__['accounts'] # Приводим к виду [Account(...), Account(...), ...]
         #print(client.operations.get_portfolio(account_id='2109627600'))
@@ -26,7 +24,8 @@ def main():
             portfolio = client.operations.get_portfolio(account_id=account)
             positions = client.operations.get_positions(account_id=account)
             print(positions)
+        return positions
 
 
 if __name__ == "__main__":
-    main()
+    get_portfolio()
