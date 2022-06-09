@@ -21,17 +21,41 @@ def get_portfolio():
             return accounts_with_access
         accounts_with_access = findAccountsWithReadOnlyLevel(accounts)
         for account in accounts_with_access:
-            #portfolio = client.operations.get_portfolio(account_id=account)
-            positions = client.operations.get_positions(account_id=account)
-            positions = positions.securities
-            #return positions
-            for position in positions:
+            portfolio = client.operations.get_portfolio(account_id=account)
+            portfolio = portfolio.positions
+            #positions = client.operations.get_positions(account_id=account)
+            #positions = positions.securities
+            for position in portfolio:
+                figi = position.figi
+                instrument_type = position.instrument_type
+                currency = position.current_price.currency
+                quantity = position.quantity.units + position.quantity.nano / 1000000000
+                expected_yield = position.expected_yield.units + position.expected_yield.nano / 1000000000
+                average_position_price_pt = position.average_position_price_pt.units + position.average_position_price_pt.nano / 1000000000
+                quantity_lots = position.quantity_lots.units + position.quantity_lots.nano / 1000000000
+                average_position_price = position.average_position_price.units + position.average_position_price.nano / 1000000000
+                current_nkd = position.current_nkd.units + position.current_nkd.nano / 1000000000
+                current_price = position.current_price.units + position.current_price.nano / 1000000000
+                average_position_price_fifo = position.average_position_price_fifo.units + position.average_position_price_fifo.nano / 1000000000
+                save_securities(figi, instrument_type, currency, quantity, average_position_price,
+                                expected_yield, current_nkd, average_position_price_pt, current_price,
+                                average_position_price_fifo, quantity_lots)
+            """for position in positions:
                 figi = position.figi
                 blocked = position.blocked
                 balance = position.balance
-                save_securities(figi, blocked, balance)
-
-def save_securities(figi, blocked, balance):
-    position_securities = Securities(figi=figi, blocked=blocked, balance=balance)
+                save_securities(figi, blocked, balance)"""
+                
+def save_securities(figi, instrument_type, currency, quantity, average_position_price,
+                    expected_yield, current_nkd, average_position_price_pt, current_price,
+                    average_position_price_fifo, quantity_lots):
+    position_securities = Securities(figi=figi, instrument_type=instrument_type,
+                                    currency=currency, quantity=quantity,
+                                    average_position_price=average_position_price,
+                                    expected_yield=expected_yield, current_nkd=current_nkd,
+                                    average_position_price_pt=average_position_price_pt,
+                                    current_price=current_price,
+                                    average_position_price_fifo=average_position_price_fifo,
+                                    quantity_lots=quantity_lots)
     db.session.add(position_securities)
     db.session.commit()

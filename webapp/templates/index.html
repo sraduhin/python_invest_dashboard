@@ -23,7 +23,11 @@
             </div>
             <div class="row">
                 {% for security in securities %}
-                <p>FIGI: {{ security.figi }} blocked: {{ security.blocked }} total: {{ security.balance }}</p> 
+                <p>FIGI: {{ security.figi }} 
+                    amount: {{ security.quantity }} 
+                    price: {{ security.current_price }} {{ security.currency }} 
+                    average_price: {{ security.average_position_price_fifo }} {{ security.currency }}
+                    total: {{ security.current_price }} * {{ security.quantity }} {{ security.currency }}</p> 
                 {% endfor %}
             </div>
         </div>
