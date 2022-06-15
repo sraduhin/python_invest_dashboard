@@ -40,9 +40,13 @@
             crossorigin="anonymous"></script>
         <div class="col">
             <div class="row">
-                {% for tiker in tikers %}
-                <p>{{ tiker}}{{ base_currency }}: {{ 1 / currencies[tiker] }}</p>
-                {% endfor %}
+                {% if currencies %}
+                    {% for tiker in tikers %}
+                    <p>{{ tiker}}{{ base_currency }}: {{ 1 / currencies[tiker] }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>Service unabailable</p>
+                {% endif %}
             </div>
         </div>
     </div>
