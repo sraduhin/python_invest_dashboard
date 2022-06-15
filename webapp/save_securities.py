@@ -1,4 +1,4 @@
-from webapp.models import db, Securities
+from webapp.model import db, Securities
 
 def save_securities(figi, instrument_type, currency, quantity, average_position_price,
                     expected_yield, current_nkd, average_position_price_pt, current_price,

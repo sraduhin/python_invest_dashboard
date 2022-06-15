@@ -1,6 +1,6 @@
 from tinkoff.invest import Client
 from flask import current_app
-from webapp.save_seciruties import save_securities
+from webapp.save_securities import save_securities
 
 def get_portfolio():
     TOKEN = current_app.config['TINKOFF_API_KEY']

@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 from webapp.model import db, Securities
 from webapp.currencies import get_currencies
-from webapp.invest_accounts import get_portfolio
+from webapp.get_securities import get_portfolio
 
 def create_app():
     """
