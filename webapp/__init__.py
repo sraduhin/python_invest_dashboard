@@ -1,8 +1,6 @@
 from flask import Flask, render_template
 
 from webapp.model import db, Securities
-from webapp.currencies import get_currencies
-from webapp.get_securities import get_portfolio
 
 def create_app():
     """
@@ -16,11 +14,10 @@ def create_app():
     @app.route('/')
     def index():
         title = 'Invest DashBoard'
-        currencies_code = 'USD%2C%20EUR%2C%20GBP%2C%20JPY%2C%20TRY'
+        tikers = ['USD', 'EUR', 'GBP', 'JPY', 'TRY']
         base_currency = 'RUB'
-        tikers = currencies_code.split('%2C%20')
         # Сохраним запросы API
-        #currencies = get_currencies(currencies_code, base_currency)
+        #currencies = get_currencies('%2C%20'.join(tikers), base_currency)
         currencies = {'USD': 0.015873, 'EUR': 0.014775, 'GBP': 0.012637, 'JPY': 2.071604, 'TRY': 0.26239}
         securities = Securities.query.all()
         return render_template('index.html', page_title=title, currencies=currencies, tikers=tikers, base_currency=base_currency, securities=securities)

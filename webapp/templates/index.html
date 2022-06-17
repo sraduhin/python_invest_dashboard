@@ -42,7 +42,7 @@
             <div class="row">
                 {% if currencies %}
                     {% for tiker in tikers %}
-                    <p>{{ tiker}}{{ base_currency }}: {{ 1 / currencies[tiker] }}</p>
+                    <p>{{ tiker }}{{ base_currency }}: {{ 1 / currencies[tiker] }}</p>
                     {% endfor %}
                 {% else %}
                     <p>Service unabailable</p>
