@@ -10,7 +10,7 @@ class Shares(db.Model):
     classCode = db.Column(db.String, nullable=True)
     exchange = db.Column(db.String, nullable=True)
     currency = db.Column(db.String, nullable=True)
-    securities = db.relationship('Securities', backref='shares')
+    #securities = db.relationship('Securities', backref='shares')
 
     def __repr__(self):
         return '<Shares {} {}>'.format(self.figi, self.tiker)
@@ -26,15 +26,15 @@ class Portfolios(db.Model):
     total_etf = db.Column(db.Float, nullable=True)
     total_bonds = db.Column(db.Float, nullable=True)
     total_futures = db.Column(db.Float, nullable=True)
-    securities = db.relationship('Securities', backref='portfolio')
+    #securities = db.relationship('Securities', backref='portfolio')
 
     def __repr__(self):
         return '<Portfolios {} {}>'.format(self.id, self.type)
         
 class Securities(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    figi = db.Column(db.String, db.ForeignKey('shares.figi'))
-    account_id = db.Column(db.Integer, db.ForeignKey('portfolio.account_id'))
+    figi = db.Column(db.String, db.ForeignKey(Shares.figi))
+    account_id = db.Column(db.Integer, db.ForeignKey(Portfolios.account_id))
     amount = db.Column(db.Float, nullable=False)
     average_price = db.Column(db.Float, nullable=False)
     expected_yield = db.Column(db.Float, nullable=False)
