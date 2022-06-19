@@ -1,25 +1,17 @@
-from locale import currency
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Assets(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=True)
-    figi = db.Column(db.String, nullable=False)
-    type = db.Column(db.String, nullable=True)
-    tiker = db.Column(db.String, nullable=True)
-    class_code = db.Column(db.String, nullable=True)
-
-    def __repr__(self):
-        return '<securities {} {}>'.format(self.tiker, self.current_price)
-
 class Securities(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    figi = db.Column(db.String, db.ForeignKey(Assets.figi))
+    name = db.Column(db.Text, nullable=True)
+    tiker = db.Column(db.String, nullable=True)
+    exchange = db.Column(db.String, nullable=True)
+    currency = db.Column(db.String, nullable=True)
+    class_code = db.Column(db.String, nullable=True)
+    figi = db.Column(db.String, nullable=False)
     account_id = db.Column(db.Integer,)
     amount = db.Column(db.Float, nullable=False)
-    currency = db.Column(db.String, nullable=True)
     average_price = db.Column(db.Float, nullable=False)
     expected_yield = db.Column(db.Float, nullable=False)
     current_nkd = db.Column(db.Float, nullable=False)
