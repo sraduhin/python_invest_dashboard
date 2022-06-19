@@ -1,6 +1,8 @@
+from time import sleep
 from tinkoff.invest import Client
 from flask import current_app
 from webapp.save_securities import save_securities
+from webapp.normalize import normalize_floatings
 
 def get_securities():
     TOKEN = current_app.config['TINKOFF_API_KEY']
@@ -11,17 +13,25 @@ def get_securities():
         for account in accounts:
             portfolio = client.operations.get_portfolio(account_id=account)
             portfolio = portfolio.positions
+            assets = client.instruments
             for position in portfolio:
                 account_id = account
                 figi = position.figi
-                amount = position.quantity.units + position.quantity.nano / 1000000000
-                expected_yield = position.expected_yield.units + position.expected_yield.nano / 1000000000
-                lots = position.quantity_lots.units + position.quantity_lots.nano / 1000000000
-                average_price = position.average_position_price.units + position.average_position_price.nano / 1000000000
-                current_nkd = position.current_nkd.units + position.current_nkd.nano / 1000000000
-                current_price = position.current_price.units + position.current_price.nano / 1000000000
-                fifo = position.average_position_price_fifo.units + position.average_position_price_fifo.nano / 1000000000
-                save_securities(account_id, figi, amount, average_price,
+                currency = position.current_price.currency
+                """print(figi)
+                name = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.name
+                tiker = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.ticker
+                class_code = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.class_code
+                exchange = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.exchange
+                currency = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.currency"""
+                amount = normalize_floatings(position.quantity)
+                expected_yield = normalize_floatings(position.expected_yield)
+                lots = normalize_floatings(position.quantity_lots)
+                average_price = normalize_floatings(position.average_position_price)
+                current_nkd = normalize_floatings(position.current_nkd)
+                current_price = normalize_floatings(position.current_price)
+                fifo = normalize_floatings(position.average_position_price_fifo)
+                save_securities(account_id, figi, currency, amount, average_price,
                                 expected_yield, current_nkd, current_price,
                                 fifo, lots)
                 

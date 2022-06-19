@@ -2,6 +2,7 @@ from sqlalchemy import null
 from tinkoff.invest import Client
 from flask import current_app
 from webapp.save_portfolios import save_portfolios
+from webapp.normalize import normalize_floatings
 
 def get_portfolios():
     TOKEN = current_app.config['TINKOFF_API_KEY']
@@ -13,14 +14,13 @@ def get_portfolios():
             type = account.type
             if account.access_level in [1, 2]:
                 data = True
-                divisor = 1000000000 # (units=5, nano=300000000) => units + nano / divisor = 5.30
                 portfolio = client.operations.get_portfolio(account_id=account_id)
-                expected_yield = portfolio.expected_yield.units + portfolio.expected_yield.nano / divisor
-                total_currencies = portfolio.total_amount_currencies.units + portfolio.total_amount_currencies.nano / divisor
-                total_shares = portfolio.total_amount_shares.units + portfolio.total_amount_shares.nano / divisor
-                total_etf = portfolio.total_amount_etf.units + portfolio.total_amount_etf.nano / divisor
-                total_bonds = portfolio.total_amount_bonds.units + portfolio.total_amount_bonds.nano / divisor
-                total_futures = portfolio.total_amount_futures.units + portfolio.total_amount_futures.nano / divisor
+                expected_yield = normalize_floatings(portfolio.expected_yield)
+                total_currencies = normalize_floatings(portfolio.total_amount_currencies)
+                total_shares = normalize_floatings(portfolio.total_amount_shares)
+                total_etf = normalize_floatings(portfolio.total_amount_etf)
+                total_bonds = normalize_floatings(portfolio.total_amount_bonds)
+                total_futures = normalize_floatings(portfolio.total_amount_futures)
                 save_portfolios(account_id, type, data, expected_yield, total_currencies, total_shares, total_etf, total_bonds, total_futures)
             else:
                 data = False

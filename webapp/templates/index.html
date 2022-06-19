@@ -84,10 +84,10 @@
                     {% for security in securities %}
                     <tr>
                         <td>{{ security.figi }}</td>
-                        <td>{{ security.quantity }}</td>
+                        <td>{{ security.amount }}</td>
                         <td>{{ security.current_price }} {{ security.currency }}</td>
-                        <td>{{ security.average_position_price_fifo }} {{ security.currency }}</td>
-                        <td>{{ security.current_price * security.quantity }} {{ security.currency }}</td>
+                        <td>{{ security.fifo }} {{ security.currency }}</td>
+                        <td>{{ security.current_price * security.amount }} {{ security.currency }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
