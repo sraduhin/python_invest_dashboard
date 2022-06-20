@@ -1,6 +1,7 @@
 import requests
 import webapp.config as config
 
+
 def get_currencies(symbols, base):
     """
     Фукнция должна вернуть соотношение валютных пар RUBUSD, RUBEUR, RUBGBP, RUBJPY, RUBTRY
@@ -27,12 +28,9 @@ def get_currencies(symbols, base):
         'base': base
     }
     payload = {}
-    headers= {
-    "apikey": config.CURRENCIES_API_KEY
-    }
-
+    headers = {"apikey": config.CURRENCIES_API_KEY}
     try:
-        result = requests.get(url, params=params, headers=headers, data = payload)
+        result = requests.get(url, params=params, headers=headers, data=payload)
         result.raise_for_status()
         #status_code = response.status_code
         currencies = result.json()
@@ -43,5 +41,7 @@ def get_currencies(symbols, base):
         return False
     return False
 
+
 if __name__ == '__main__':
-    print(get_currencies('USD%2C%20EUR%2C%20GBP%2C%20JPY%2C%20TRY', 'RUB')) 
+    print(get_currencies('USD%2C%20EUR%2C%20GBP%2C%20JPY%2C%20TRY', 'RUB'))
+

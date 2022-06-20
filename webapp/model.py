@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class Securities(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=True)
@@ -9,7 +10,6 @@ class Securities(db.Model):
     exchange = db.Column(db.String, nullable=True)
     currency = db.Column(db.String, nullable=True)
     class_code = db.Column(db.String, nullable=True)
-    figi = db.Column(db.String, nullable=False)
     account_id = db.Column(db.Integer,)
     amount = db.Column(db.Float, nullable=False)
     average_price = db.Column(db.Float, nullable=False)
@@ -22,11 +22,11 @@ class Securities(db.Model):
     def __repr__(self):
         return '<securities {} {}>'.format(self.tiker, self.current_price)
 
+
 class Portfolios(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     account_id = db.Column(db.Integer, db.ForeignKey(Securities.account_id))
     type = db.Column(db.Integer, nullable=False)
-    data = db.Column(db.Boolean, nullable=False)
     expected_yield = db.Column(db.Float, nullable=True)
     total_currencies = db.Column(db.Float, nullable=True)
     total_shares = db.Column(db.Float, nullable=True)
@@ -36,4 +36,3 @@ class Portfolios(db.Model):
 
     def __repr__(self):
         return '<Portfolios {} {}>'.format(self.account_id, self.expected_yield)
-
