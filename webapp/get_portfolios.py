@@ -5,9 +5,12 @@ from webapp.save_portfolios import save_portfolios
 from webapp.normalize import normalize_floatings
 
 def get_portfolios():
+    """ Функция извлекает все доступные аккаунты по токену TINKOFF API и возвращает данные с уровнем доступа
+    1: full-access и 2: read-only. Для остальных аккаунтов данные функция возвращает нулевые данные
+    и маркерирует их отсутствие для front'a data=false"""
     TOKEN = current_app.config['TINKOFF_API_KEY']
     with Client(TOKEN) as client:
-        accounts = client.users.get_accounts().accounts # Приводим к виду [Account(...), Account(...), ...]
+        accounts = client.users.get_accounts().accounts
 
         for account in accounts:
             account_id = account.id
