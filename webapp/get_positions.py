@@ -1,10 +1,10 @@
 from time import sleep
 from tinkoff.invest import Client
 from flask import current_app
-from webapp.save_securities import save_securities
+from webapp.save_positions import save_positions
 from webapp.normalize import normalize_floatings
 
-def get_securities():
+def get_positions():
     TOKEN = current_app.config['TINKOFF_API_KEY']
     with Client(TOKEN) as client:
         accounts = client.users.get_accounts().accounts
@@ -32,11 +32,11 @@ def get_securities():
                 current_nkd = normalize_floatings(position.current_nkd)
                 current_price = normalize_floatings(position.current_price)
                 fifo = normalize_floatings(position.average_position_price_fifo)
-                save_securities(account_id, currency, name, tiker, class_code, exchange, amount, average_price,
+                save_positions(account_id, currency, name, tiker, class_code, exchange, amount, average_price,
                                 expected_yield, current_nkd, current_price,
                                 fifo, lots)
                 sleep(1.6)
 
 
 if __name__ == '__main__':
-    print(get_securities())
+    print(get_positions())
