@@ -136,3 +136,6 @@ dmypy.json
 
 # mac files
 Miniforge*MacOSX*arm64.sh
+
+# vscode
+.vscode
