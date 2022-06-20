@@ -129,10 +129,10 @@ dmypy.json
 .pyre/
 
 # api-keys
-webapp/config.py
+*config.py
 
 #db
-.db
+*.db
 
 # mac files
 Miniforge*MacOSX*arm64.sh
