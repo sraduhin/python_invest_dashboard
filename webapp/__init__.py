@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-from webapp.model import db, Securities
+from webapp.model import db, Position
 
 
 def create_app():
@@ -20,6 +20,6 @@ def create_app():
         # Сохраним запросы API
         # currencies = get_currencies('%2C%20'.join(tikers), base_currency)
         currencies = {'USD': 0.015873, 'EUR': 0.014775, 'GBP': 0.012637, 'JPY': 2.071604, 'TRY': 0.26239}
-        securities = Securities.query.all()
+        securities = Position.query.all()
         return render_template('index.html', page_title=title, currencies=currencies, tikers=tikers, base_currency=base_currency, securities=securities)
     return app
