@@ -5,13 +5,13 @@ from webapp.normalize import normalize_floatings
 from webapp.model import Portfolio, Instrument
 
 def get_positions():
+    """Функция извлекает из API данные для аккаунтов с уровнем доступа:
+    1: full access; 2: read-only"""
     TOKEN = current_app.config['TINKOFF_API_KEY']
     with Client(TOKEN) as client:
-        accounts = client.users.get_accounts().accounts
-        accounts = [account.id for account in accounts if account.access_level in [1, 2]]
-        for account in accounts:
-            positions = client.operations.get_portfolio(account_id=account).positions
-            portfolio = Portfolio.query.filter(Portfolio.account_id == account).first()
+        portfolios = Portfolio.query.all()
+        for portfolio in portfolios:
+            positions = client.operations.get_portfolio(account_id=portfolio.account_id).positions
             portfolio_id = portfolio.id
             for position in positions:
                 figi = position.figi
