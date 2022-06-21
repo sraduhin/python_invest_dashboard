@@ -17,6 +17,7 @@ class Portfolio(db.Model):
     def __repr__(self):
         return '<Portfolio {} {}>'.format(self.account, self.expected_yield)
 
+
 class Position(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolio.id'), nullable=False)
@@ -29,6 +30,7 @@ class Position(db.Model):
 
     def __repr__(self):
         return '<Position {} {}>'.format(self.figi, self.current_price)
+
 
 class Instrument(db.Model):
     id = db.Column(db.Integer, primary_key=True)
