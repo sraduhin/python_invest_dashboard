@@ -5,7 +5,6 @@ db = SQLAlchemy()
 
 class Portfolio(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    account = db.Column(db.Integer, nullable=True)
     expected_yield = db.Column(db.Float, nullable=True)
     total_shares = db.Column(db.Float, nullable=True)
     total_bonds = db.Column(db.Float, nullable=True)
@@ -20,8 +19,8 @@ class Portfolio(db.Model):
 
 class Position(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    account_id = db.Column(db.Integer, db.ForeignKey('portfolio.account'), nullable=False)
-    figi_id = db.Column(db.String, db.ForeignKey('instrument.figi'), nullable=False)
+    portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolio.id'), nullable=False)
+    instrument_id = db.Column(db.String, db.ForeignKey('instrument.id'), nullable=False)
     amount = db.Column(db.Float, nullable=False)
     expected_yield = db.Column(db.Float, nullable=False)
     average_price = db.Column(db.Float, nullable=False)

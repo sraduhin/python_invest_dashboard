@@ -19,7 +19,6 @@ def get_positions():
                 account_id = account
                 figi = position.figi
                 currency = position.current_price.currency
-                temp = position.
                 name = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.name
                 tiker = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.ticker
                 class_code = assets.get_instrument_by(id_type=INSTRUMENT_ID_TYPE_FIGI, class_code="", id=figi).instrument.class_code
@@ -36,6 +35,14 @@ def get_positions():
                                 expected_yield, current_nkd, current_price,
                                 fifo, lots)
                 sleep(1.6)
+
+    account_id = db.Column(db.Integer, db.ForeignKey('portfolio.account'), nullable=False)
+    figi_id = db.Column(db.String, db.ForeignKey('instrument.figi'), nullable=False)
+    amount = db.Column(db.Float, nullable=False)
+    expected_yield = db.Column(db.Float, nullable=False)
+    average_price = db.Column(db.Float, nullable=False)
+    current_price = db.Column(db.Float, nullable=False)
+    lots = db.Column(db.Float, nullable=False)
 
 
 if __name__ == '__main__':
