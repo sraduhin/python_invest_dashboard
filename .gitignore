@@ -127,3 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# api-keys
+*config.py
+
+#db
+*.db
+
+# mac files
+Miniforge*MacOSX*arm64.sh
+
+# vscode
+.vscode
