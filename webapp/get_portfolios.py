@@ -5,7 +5,7 @@ from webapp.normalize import normalize_floatings
 
 
 def get_portfolios():
-    """ Функция возвращает данные для аккаунтов с уровнем доступа
+    """ Функция извлекает из API данные для аккаунтов с уровнем доступа
     1: full-access и 2: read-only"""
     TOKEN = current_app.config['TINKOFF_API_KEY']
     with Client(TOKEN) as client:

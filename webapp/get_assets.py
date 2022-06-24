@@ -4,6 +4,8 @@ from webapp.save_assets import save_assets
 
 
 def get_assets():
+    """ Функция извлекает из API данные биржевых инструментов
+    и сохраняет в таблицу по типу бумаги"""
     TOKEN = current_app.config['TINKOFF_API_KEY']
     save_assets_by_type(TOKEN, 'shares')
     save_assets_by_type(TOKEN, 'bonds')
