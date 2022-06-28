@@ -731,54 +731,28 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Securities<span>| Table</span></h5>
+                  <h5 class="card-title">Securities <span>| Table</span></h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Chicken</th>
-                        <th scope="col">Chicken</th>
-                        <th scope="col">Chicken</th>
-                        <th scope="col">Chicken</th>
+                        <th scope="col">Tiker</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Profit</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Chicken Chicken</td>
-                        <td><a href="#" class="text-primary">Chicken chicken chicken</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Chicken</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Chicken Chicken</td>
-                        <td><a href="#" class="text-primary">Chicken chicken chicken chicken</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Chicken</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Chicken Chicken</td>
-                        <td><a href="#" class="text-primary">Chicken chicken chicken</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Chicken</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Chicken Chicken</td>
-                        <td><a href="#" class="text-primar">Chicken chicken chicken chicken chicken</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Chicken</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Chicken Chicken</td>
-                        <td><a href="#" class="text-primary">Chicken chicken chicken</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Chicken</span></td>
-                      </tr>
+                        {% for security in securities %}
+                        <tr>
+                            <td>{{ security.tiker }}</td>
+                            <td>{{ security.name }}</td>
+                            <td>{{ security.total }}</td>
+                            <td>{{ security.current_price }}</td>
+                            <td>{{ security.expected_yield }}</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                   </table>
 
