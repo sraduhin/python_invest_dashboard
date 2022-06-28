@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from queries import get_position_row
+from webapp.portfolio.queries import get_position_row
 
 blueprint = Blueprint('securities', __name__)
 
