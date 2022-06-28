@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Components / Buttons - NiceAdmin Bootstrap Template</title>
+  <title>Components / Progress - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -286,72 +286,72 @@
         </a>
         <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="components/components-alerts.html">
               <i class="bi bi-circle"></i><span>Alerts</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="components/components-accordion.html">
               <i class="bi bi-circle"></i><span>Accordion</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="components/components-badges.html">
               <i class="bi bi-circle"></i><span>Badges</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="components/components-breadcrumbs.html">
               <i class="bi bi-circle"></i><span>Breadcrumbs</span>
             </a>
           </li>
           <li>
-            <a href="components-buttons.html" class="active">
+            <a href="components/components-buttons.html">
               <i class="bi bi-circle"></i><span>Buttons</span>
             </a>
           </li>
           <li>
-            <a href="components-cards.html">
+            <a href="components/components-cards.html">
               <i class="bi bi-circle"></i><span>Cards</span>
             </a>
           </li>
           <li>
-            <a href="components-carousel.html">
+            <a href="components/components-carousel.html">
               <i class="bi bi-circle"></i><span>Carousel</span>
             </a>
           </li>
           <li>
-            <a href="components-list-group.html">
+            <a href="components/components-list-group.html">
               <i class="bi bi-circle"></i><span>List group</span>
             </a>
           </li>
           <li>
-            <a href="components-modal.html">
+            <a href="components/components-modal.html">
               <i class="bi bi-circle"></i><span>Modal</span>
             </a>
           </li>
           <li>
-            <a href="components-tabs.html">
+            <a href="components/components-tabs.html">
               <i class="bi bi-circle"></i><span>Tabs</span>
             </a>
           </li>
           <li>
-            <a href="components-pagination.html">
+            <a href="components/components-pagination.html">
               <i class="bi bi-circle"></i><span>Pagination</span>
             </a>
           </li>
           <li>
-            <a href="components-progress.html">
+            <a href="components/components-progress.html" class="active">
               <i class="bi bi-circle"></i><span>Progress</span>
             </a>
           </li>
           <li>
-            <a href="components-spinners.html">
+            <a href="components/components-spinners.html">
               <i class="bi bi-circle"></i><span>Spinners</span>
             </a>
           </li>
           <li>
-            <a href="components-tooltips.html">
+            <a href="components/components-tooltips.html">
               <i class="bi bi-circle"></i><span>Tooltips</span>
             </a>
           </li>
@@ -508,12 +508,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Buttons</h1>
+      <h1>Progress</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Components</li>
-          <li class="breadcrumb-item active">Buttons</li>
+          <li class="breadcrumb-item active">Progress</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -524,70 +524,66 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Default Buttons</h5>
+              <h5 class="card-title">Default</h5>
 
-              <button type="button" class="btn btn-primary">Primary</button>
-              <button type="button" class="btn btn-secondary">Secondary</button>
-              <button type="button" class="btn btn-success">Success</button>
-              <button type="button" class="btn btn-danger">Danger</button>
-              <button type="button" class="btn btn-warning">Warning</button>
-              <button type="button" class="btn btn-info">Info</button>
-              <button type="button" class="btn btn-light">Light</button>
-              <button type="button" class="btn btn-dark">Dark</button>
-              <button type="button" class="btn btn-link">Link</button>
+              <!-- Default Progress Bars-->
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div><!-- End Default Progress Bars-->
+
             </div>
           </div>
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Rounded Buttons</h5>
+              <h5 class="card-title">Labels</h5>
 
-              <button type="button" class="btn btn-primary rounded-pill">Primary</button>
-              <button type="button" class="btn btn-secondary rounded-pill">Secondary</button>
-              <button type="button" class="btn btn-success rounded-pill">Success</button>
-              <button type="button" class="btn btn-danger rounded-pill">Danger</button>
-              <button type="button" class="btn btn-warning rounded-pill">Warning</button>
-              <button type="button" class="btn btn-info rounded-pill">Info</button>
-              <button type="button" class="btn btn-light rounded-pill">Light</button>
-              <button type="button" class="btn btn-dark rounded-pill">Dark</button>
+              <!-- Progress Bars with labels-->
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+              </div><!-- End Progress Bars with labels -->
+
             </div>
           </div>
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Icon Buttons</h5>
+              <h5 class="card-title">Backgrounds</h5>
 
-              <button type="button" class="btn btn-primary"><i class="bi bi-star me-1"></i> With Text</button>
-              <button type="button" class="btn btn-secondary"><i class="bi bi-collection"></i></button>
-              <button type="button" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
-              <button type="button" class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></button>
-              <button type="button" class="btn btn-warning"><i class="bi bi-exclamation-triangle"></i></button>
-              <button type="button" class="btn btn-info"><i class="bi bi-info-circle"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-folder"></i></button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Button Groups</h5>
-
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary">Left</button>
-                <button type="button" class="btn btn-primary">Middle</button>
-                <button type="button" class="btn btn-primary">Right</button>
+              <!-- Progress Bars with Backgrounds-->
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-
-              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">Left</button>
-                <button type="button" class="btn btn-warning">Middle</button>
-                <button type="button" class="btn btn-success">Right</button>
+              <div class="progress mt-3">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-
-              <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-primary">Left</button>
-                <button type="button" class="btn btn-outline-primary">Middle</button>
-                <button type="button" class="btn btn-outline-primary">Right</button>
+              <div class="progress mt-3">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
+              <div class="progress mt-3">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div><!-- End Progress Bars with Backgrounds -->
 
             </div>
           </div>
@@ -598,46 +594,71 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Outline Buttons</h5>
+              <h5 class="card-title">Height</h5>
+              <p>We only set a height value on the .progress, so if you change that value the inner .progress-bar will automatically resize accordingl</p>
 
-              <button type="button" class="btn btn-outline-primary">Primary</button>
-              <button type="button" class="btn btn-outline-secondary">Secondary</button>
-              <button type="button" class="btn btn-outline-success">Success</button>
-              <button type="button" class="btn btn-outline-danger">Danger</button>
-              <button type="button" class="btn btn-outline-warning">Warning</button>
-              <button type="button" class="btn btn-outline-info">Info</button>
-              <button type="button" class="btn btn-outline-light">Light</button>
-              <button type="button" class="btn btn-outline-dark">Dark</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Button Sizes</h5>
-
-              <button type="button" class="btn btn-primary btn-sm">Small</button>
-              <button type="button" class="btn btn-secondary">Normal</button>
-              <button type="button" class="btn btn-success btn-lg">Large</button>
-
-              <button type="button" class="btn btn-outline-danger btn-sm">Small</button>
-              <button type="button" class="btn btn-outline-warning">Normal</button>
-              <button type="button" class="btn btn-outline-info btn-lg">Large</button>
-
-              <div class="d-grid gap-2 mt-3">
-                <button class="btn btn-primary" type="button">Block Button</button>
+              <!-- Progress Bars with heights-->
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
+              <div class="progress mt-3" style="height: 15px;">
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3" style="height: 20px;">
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3" style="height: 25px;">
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div><!-- End Progress Bars with heights -->
 
             </div>
           </div>
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Button States</h5>
+              <h5 class="card-title">Striped Backgrounds</h5>
 
-              <button type="button" class="btn btn-primary">Normal</button>
-              <button type="button" class="btn btn-primary" disabled>Disabled</button>
-              <button type="button" class="btn btn-outline-primary">Normal</button>
-              <button type="button" class="btn btn-outline-primary" disabled>Disabled</button>
+              <!-- Progress Bars with Striped Backgrounds-->
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div><!-- End Progress Bars with Striped Backgrounds -->
+
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Striped Animated Backgrounds</h5>
+
+              <!-- Progress Bars with Striped Backgrounds-->
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div><!-- End Progress Bars with Striped Animated Backgrounds -->
+
             </div>
           </div>
 

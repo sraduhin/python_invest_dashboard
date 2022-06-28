@@ -1,7 +1,7 @@
 from tinkoff.invest import Client
 from flask import current_app
-from webapp.save_portfolios import save_portfolios
-from webapp.normalize import normalize_floatings
+from webapp.portfolio.save_portfolios import save_portfolios
+from webapp.portfolio.normalize import normalize_floatings
 
 
 def get_portfolios():

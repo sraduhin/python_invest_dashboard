@@ -1,6 +1,6 @@
 from tinkoff.invest import Client
 from flask import current_app
-from webapp.save_assets import save_assets
+from webapp.portfolio.save_assets import save_assets
 
 
 def get_assets():

@@ -1,4 +1,4 @@
-from webapp.model import db, Portfolio, Position, Instrument
+from webapp.portfolio.models import db, Portfolio
 
     
     
