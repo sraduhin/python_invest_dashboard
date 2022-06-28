@@ -7,10 +7,6 @@ from webapp.db import db
 from webapp.user.models import User
 
 def create_app():
-    """
-    run app
-    Mac: export FLASK_APP=webapp && export FLASK_ENV=development && flask run
-    Win: set FLASK_APP=webapp && set FLASK_ENV=development && set FLASK_DEBUG=1 && flask run"""
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
     db.init_app(app)

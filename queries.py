@@ -1,7 +1,6 @@
-from webapp.portfolio.models import db, Portfolio
+from webapp.portfolio.models import Portfolio
 
-    
-    
+
 def get_position_row(account_id):
     portfolio = Portfolio.query.filter(Portfolio.account_id == account_id).first()
     position_list = []

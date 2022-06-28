@@ -15,4 +15,4 @@ def index():
     historycal_portfolio_data = {'Monday': 1000, "Tuesday": 900, "Wednesday": 1230, "Thursday": 1400, "Friday": 1800, "Saturday": 1700, "Sunday": 1500}
     labels = list(historycal_portfolio_data.keys())
     values = list(historycal_portfolio_data.values())
-    return render_template('index.html', page_title=title, currencies=currencies, tikers=tikers, base_currency=base_currency, securities=securities, labels=labels, values=values)
+    return render_template('portfolio/index.html', page_title=title, currencies=currencies, tikers=tikers, base_currency=base_currency, securities=securities, labels=labels, values=values)

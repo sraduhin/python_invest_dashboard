@@ -1,4 +1,4 @@
-from webapp.model import db, Position
+from webapp.portfolio.models import db, Position
 
 
 def save_positions(portfolio_id, instrument_id, amount, expected_yield,
