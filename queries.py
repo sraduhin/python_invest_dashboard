@@ -1,4 +1,3 @@
-from venv import create
 from webapp.portfolio.queries import get_position_row
 
 
