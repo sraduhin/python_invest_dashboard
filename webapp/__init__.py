@@ -17,8 +17,8 @@ def create_app():
     login_manager.login_view = 'user.login'
     app.register_blueprint(user_blueprint)
     app.register_blueprint(admin_blueprint)
-    app.register_blueprint(currency_blueprint)
     app.register_blueprint(portfolio_blueprint)
+    app.register_blueprint(currency_blueprint)
 
     @login_manager.user_loader
     def load_user(user_id):

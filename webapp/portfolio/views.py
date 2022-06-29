@@ -11,4 +11,4 @@ def index():
     #historycal_portfolio_data = {'Monday': 1000, "Tuesday": 900, "Wednesday": 1230, "Thursday": 1400, "Friday": 1800, "Saturday": 1700, "Sunday": 1500}
     #labels = list(historycal_portfolio_data.keys())
     #values = list(historycal_portfolio_data.values())
-    return render_template('dashboard/index.html', account_id=account_id, securities_block_title=title, securities=securities)
+    return render_template('portfolio/index.html', account_id=account_id, securities_block_title=title, securities=securities)
