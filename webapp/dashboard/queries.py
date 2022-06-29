@@ -1,4 +1,5 @@
-from webapp.portfolio.models import Portfolio
+from webapp.dashboard.models import Portfolio
+from webapp.dashboard.currencies import get_currencies
 
 
 def get_position_row(account_id):
@@ -15,7 +16,17 @@ def get_position_row(account_id):
             expected_yield = round(position.expected_yield, 2)
             position_list.append({'Name':name, 'Tiker':tiker, 'Amount':amount, 'Average price':average_price,
                             'Total':total, 'Current price':current_price, 'Expected yield':expected_yield})
-    print(position_list)
     return position_list
+
+
+def get_balance_by_account(account_id, currency='USD'):
+    portfolio = Portfolio.query.filter(Portfolio.account_id == account_id).first()
+    balance = portfolio.total_shares + portfolio.total_bonds + portfolio.total_etf + portfolio.total_currencies + portfolio.total_futures
+    profit = balance * portfolio.expected_yield / 100
+    portfolio_balances = {'balance': balance, 'profit': profit}
+    if currency != 'RUB':
+        portfolio_balances = {key: value * get_currencies('RUB')['USD'] for (key, value) in portfolio_balances.items()}
+    return portfolio_balances
+
   
 

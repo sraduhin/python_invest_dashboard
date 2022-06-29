@@ -1,8 +1,8 @@
 from tinkoff.invest import Client
 from flask import current_app
-from webapp.portfolio.save_positions import save_positions
-from webapp.portfolio.normalize import normalize_floatings
-from webapp.portfolio.models import Portfolio, Instrument
+from webapp.dashboard.save_positions import save_positions
+from webapp.dashboard.normalize import normalize_floatings
+from webapp.dashboard.models import Portfolio, Instrument
 
 def get_positions():
     """Функция извлекает из API данные для аккаунтов с уровнем доступа:

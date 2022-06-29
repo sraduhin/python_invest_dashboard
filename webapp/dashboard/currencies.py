@@ -2,7 +2,11 @@ import requests
 import webapp.config as config
 
 
-def get_currencies(symbols, base):
+def get_currencies(base, labels=['USD', 'EUR', 'GBP', 'JPY', 'TRY']):
+    # Сохраним запросы API
+    # currencies = get_currencies('%2C%20'.join(tikers), base_currency)
+    currencies = {'USD': 0.015873, 'EUR': 0.014775, 'GBP': 0.012637, 'JPY': 2.071604, 'TRY': 0.26239}
+    return currencies
     """
     Фукнция должна вернуть соотношение валютных пар RUBUSD, RUBEUR, RUBGBP, RUBJPY, RUBTRY
     в формате:
@@ -23,8 +27,9 @@ def get_currencies(symbols, base):
 
     """
     url = config.CURRENCIES_URL
+    labels = '%2C%20'.join(labels)
     params = {
-        'symbols': symbols,
+        'symbols': labels,
         'base': base
     }
     payload = {}
@@ -43,5 +48,5 @@ def get_currencies(symbols, base):
 
 
 if __name__ == '__main__':
-    print(get_currencies('USD%2C%20EUR%2C%20GBP%2C%20JPY%2C%20TRY', 'RUB'))
+    print(get_currencies('RUB'))
 

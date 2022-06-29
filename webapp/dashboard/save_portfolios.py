@@ -1,4 +1,4 @@
-from webapp.portfolio.models import db, Portfolio
+from webapp.dashboard.models import db, Portfolio
 
 
 def save_portfolios(account_id, expected_yield,total_shares,

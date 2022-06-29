@@ -1,4 +1,4 @@
-from webapp.portfolio.models import db, Instrument
+from webapp.dashboard.models import db, Instrument
 
 def save_assets(figi, tiker, type, name, currency):
     assets = Instrument(figi=figi,
