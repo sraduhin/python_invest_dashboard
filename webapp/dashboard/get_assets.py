@@ -14,17 +14,19 @@ def get_assets():
     save_assets_by_type(TOKEN, 'futures')
 
 
-def save_assets_by_type(token, type):
+def save_assets_by_type(token, type, sector=None):
     with Client(token) as client:
         if hasattr(client.instruments, type):
             instrument_class = getattr(client.instruments, type)
             instruments = instrument_class().instruments
             for instrument in instruments:
+                if type == 'shares':
+                    sector = instrument.sector
                 figi = instrument.figi
                 tiker = instrument.ticker
                 name = instrument.name
                 currency = instrument.currency
-                save_assets(figi, tiker, type, name, currency)
+                save_assets(figi, tiker, type, name, currency, sector)
 
 
 if __name__ == '__main__':

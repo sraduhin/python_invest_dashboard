@@ -37,6 +37,7 @@ class Instrument(db.Model):
     type = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
     currency = db.Column(db.String, nullable=False)
+    sector = db.Column(db.String(30))
     position = db.relationship('Position', backref='instrument', lazy=True)
 
     def __repr__(self):
