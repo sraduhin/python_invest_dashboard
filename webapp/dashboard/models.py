@@ -24,7 +24,7 @@ class Position(db.Model):
     expected_yield = db.Column(db.Float, nullable=False)
     average_price = db.Column(db.Float, nullable=False)
     current_price = db.Column(db.Float, nullable=False)
-    lots = db.Column(db.Float, nullable=False)
+    lots = db.Column(db.Float, nullable=False) #  delete
 
     def __repr__(self):
         return '<Position {} {}>'.format(self.amount, self.current_price)

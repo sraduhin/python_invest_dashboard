@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from webapp.dashboard.queries import get_position_row, get_balance_by_account
+from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors
 from webapp.dashboard.currencies import get_currencies
 
 blueprint = Blueprint('securities', __name__)
@@ -24,5 +24,11 @@ def index():
 
     context['portfolio'] = {}
     context['portfolio']['balances'] = get_balance_by_account(account_id)
+
+    round_diagramm_title = 'Sectors'
+    context['sectors'] = {}
+    context['sectors']['title'] = round_diagramm_title
+    context['sectors']['account_id'] = account_id
+    context['sectors']['percentage'] = get_money_by_sectors(account_id)
 
     return render_template('dashboard/index.html', context=context)
