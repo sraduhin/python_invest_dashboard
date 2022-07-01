@@ -24,7 +24,7 @@ class Position(db.Model):
     expected_yield = db.Column(db.Float, nullable=False)
     average_price = db.Column(db.Float, nullable=False)
     current_price = db.Column(db.Float, nullable=False)
-    lots = db.Column(db.Float, nullable=False)
+    lots = db.Column(db.Float, nullable=False) #  delete
 
     def __repr__(self):
         return '<Position {} {}>'.format(self.amount, self.current_price)
@@ -37,6 +37,7 @@ class Instrument(db.Model):
     type = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
     currency = db.Column(db.String, nullable=False)
+    sector = db.Column(db.String(30))
     position = db.relationship('Position', backref='instrument', lazy=True)
 
     def __repr__(self):
