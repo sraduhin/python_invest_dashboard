@@ -373,7 +373,7 @@
 <!-- End Left side columns -->
 <!-- Right side columns -->
 <div class="col-lg-4">
-  <!-- Recent Activity -->
+  <!-- Currency -->
   <div class="card">
     <div class="filter">
       <a class="icon" href="#" data-bs-toggle="dropdown"
@@ -409,8 +409,8 @@
       </table>
     </div>
   </div>
-  <!-- End Recent Activity -->
-  <!-- Website Traffic -->
+  <!-- End Currency -->
+  <!-- Round Diagram -->
   <div class="card">
     <div class="filter">
       <a class="icon" href="#" data-bs-toggle="dropdown"
@@ -449,7 +449,7 @@
               {
                 name: "Access From",
                 type: "pie",
-                radius: ["40%", "70%"],
+                radius: ["20%", "70%"],
                 avoidLabelOverlap: false,
                 label: {
                   show: false,
@@ -465,30 +465,7 @@
                 labelLine: {
                   show: false,
                 },
-                // data: [{'value': 0.2796935449779227, 'name': 'it'}, {'value': 0.28197951126455856, 'name': 'industrials'}, {'value': 0.11787223067870617, 'name': 'telecom'}, {'value': 0.24304341815256342, 'name': 'consumer'}, {'value': 0.1162217195144434, 'name': 'materials'}, {'value': 0.11481391566794166, 'name': 'financial'}, {'value': 0.06448461567109087, 'name': 'energy'}, {'value': 0.03800707928210435, 'name': 'health_care'}, {'value': 0.002897242509540077, 'name': 'utilities'}, {'value': 0.0006976309331375691, 'name': None}],
                 data: {{ context.sectors.percentage | safe }},
-                /* data: [
-                  {
-                    value: 1048,
-                    name: "Search Engine",
-                  },
-                  {
-                    value: 735,
-                    name: "Direct",
-                  },
-                  {
-                    value: 580,
-                    name: "Email",
-                  },
-                  {
-                    value: 484,
-                    name: "Union Ads",
-                  },
-                  {
-                    value: 300,
-                    name: "Video Ads",
-                  },
-                ],*/
               },
             ],
           });
@@ -496,173 +473,7 @@
       </script>
     </div>
   </div>
-  <!-- End Website Traffic -->
+  <!-- End Round Diagram Traffic -->
 
-  <!-- Budget Report -->
-  <div class="card">
-    <div class="filter">
-      <a class="icon" href="#" data-bs-toggle="dropdown"
-        ><i class="bi bi-three-dots"></i
-      ></a>
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <li class="dropdown-header text-start">
-          <h6>Chicken</h6>
-        </li>
-
-        <li><a class="dropdown-item" href="#">Chicken</a></li>
-        <li><a class="dropdown-item" href="#">Chicken Chicken</a></li>
-        <li><a class="dropdown-item" href="#">Chicken Chicken</a></li>
-      </ul>
-    </div>
-
-    <div class="card-body pb-0">
-      <h5 class="card-title">Chicken Chicken <span>| Chicken Chicken</span></h5>
-
-      <div id="budgetChart" style="min-height: 400px" class="echart"></div>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          var budgetChart = echarts
-            .init(document.querySelector("#budgetChart"))
-            .setOption({
-              legend: {
-                data: ["Allocated Budget", "Actual Spending"],
-              },
-              radar: {
-                // shape: 'circle',
-                indicator: [
-                  {
-                    name: "Sales",
-                    max: 6500,
-                  },
-                  {
-                    name: "Administration",
-                    max: 16000,
-                  },
-                  {
-                    name: "Information Technology",
-                    max: 30000,
-                  },
-                  {
-                    name: "Customer Support",
-                    max: 38000,
-                  },
-                  {
-                    name: "Development",
-                    max: 52000,
-                  },
-                  {
-                    name: "Marketing",
-                    max: 25000,
-                  },
-                ],
-              },
-              series: [
-                {
-                  name: "Budget vs spending",
-                  type: "radar",
-                  data: [
-                    {
-                      value: [4200, 3000, 20000, 35000, 50000, 18000],
-                      name: "Allocated Budget",
-                    },
-                    {
-                      value: [5000, 14000, 28000, 26000, 42000, 21000],
-                      name: "Actual Spending",
-                    },
-                  ],
-                },
-              ],
-            });
-        });
-      </script>
-    </div>
-  </div>
-  <!-- End Budget Report -->
-
-  <!-- News & Updates Traffic -->
-  <div class="card">
-    <div class="filter">
-      <a class="icon" href="#" data-bs-toggle="dropdown"
-        ><i class="bi bi-three-dots"></i
-      ></a>
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <li class="dropdown-header text-start">
-          <h6>Chicken</h6>
-        </li>
-
-        <li><a class="dropdown-item" href="#">Chicken</a></li>
-        <li><a class="dropdown-item" href="#">Chicken Chicken</a></li>
-        <li><a class="dropdown-item" href="#">Chicken Chicken</a></li>
-      </ul>
-    </div>
-
-    <div class="card-body pb-0">
-      <h5 class="card-title">Chicken &amp; Chicken <span>| Chicken</span></h5>
-
-      <div class="news">
-        <div class="post-item clearfix">
-          <img src="static/assets/img/news-1.jpg" alt="" />
-          <h4>
-            <a href="#">Chicken chicken chicken chicken chicken chicken</a>
-          </h4>
-          <p>
-            Chicken chicken chicken chicken chicken. Chicken chicken chicken
-            chicken chicken chick...
-          </p>
-        </div>
-
-        <div class="post-item clearfix">
-          <img src="static/assets/img/news-2.jpg" alt="" />
-          <h4><a href="#">Chicken chicken chicken chicken</a></h4>
-          <p>
-            Chicken chicken chicken chicken chicken chicken chicken chicken
-            chicken chicken chicken chicken chick...
-          </p>
-        </div>
-
-        <div class="post-item clearfix">
-          <img src="static/assets/img/news-3.jpg" alt="" />
-          <h4>
-            <a href="#"
-              >Chicken chicken chicken chicken chicken chicken chicken chicken
-              chicken</a
-            >
-          </h4>
-          <p>
-            Chicken chicken chicken chicken chicken chicken. Chicken chicken
-            chicken chicken chick...
-          </p>
-        </div>
-
-        <div class="post-item clearfix">
-          <img src="static/assets/img/news-4.jpg" alt="" />
-          <h4>
-            <a href="#">Chicken chicken chicken chicken chicken chicken</a>
-          </h4>
-          <p>
-            Chicken chicken chicken chicken. Chicken chicken chicken chicken
-            chicken chicken chick...
-          </p>
-        </div>
-
-        <div class="post-item clearfix">
-          <img src="static/assets/img/news-5.jpg" alt="" />
-          <h4>
-            <a href="#"
-              >Chicken chicken chicken chicken chicken chicken chicken</a
-            >
-          </h4>
-          <p>
-            Chicken chicken chicken chicken chicken. Chicken chicken chicken
-            chicken chicken chick...
-          </p>
-        </div>
-      </div>
-      <!-- End sidebar recent posts-->
-    </div>
-  </div>
-  <!-- End News & Updates -->
-</div>
 <!-- End Right side columns -->
 {% endblock %}

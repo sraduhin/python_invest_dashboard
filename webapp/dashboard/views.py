@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors
 from webapp.dashboard.currencies import get_currencies
 
-blueprint = Blueprint('securities', __name__)
+blueprint = Blueprint('dashboard', __name__)
 
 @blueprint.route('/')
 def index():

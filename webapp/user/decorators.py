@@ -14,6 +14,6 @@ def admin_required(func):
             return current_app.login_manager.unauthorized()
         elif not current_user.is_admin:
             flash('Sorry bro, only for admins')
-            return redirect(url_for('securities.index'))
+            return redirect(url_for('dashboard.index'))
         return func(*args, **kwargs)
     return decorated_view
