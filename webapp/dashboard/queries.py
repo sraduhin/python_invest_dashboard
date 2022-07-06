@@ -32,6 +32,8 @@ def get_balance_by_account(account_id, currency='usd'):
 
 def get_money_by_sectors(account_id, currency='usd'):
     positions = Portfolio.query.filter(Portfolio.account_id == account_id).first().position
+    '''нужно достать все акции instrument.type = shares из конкретного портфеля Portfolio.account_id и вывести
+    Position.amount, Instrument.sector, Instrument.currency'''
     money_by_sectors = {}
     for position in positions:
         sector = position.instrument.sector

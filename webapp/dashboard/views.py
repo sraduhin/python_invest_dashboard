@@ -6,7 +6,7 @@ blueprint = Blueprint('securities', __name__)
 
 @blueprint.route('/')
 def index():
-    context = {}
+    context = {'page_title': 'InvestDashboard'}
 
     securities_block_title = 'Securities'
     account_id = '2000377867'

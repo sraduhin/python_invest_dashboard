@@ -1,4 +1,8 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block page_title %}
+  <title>{{ context.page_title }}</title>
+{% endblock %}
+{% block content %}
 <!-- Left side columns -->
 <div class="col-lg-8">
   <div class="row">

@@ -10,10 +10,10 @@ blueprint = Blueprint('user', __name__, url_prefix='/users')
 @blueprint.route('/login')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('portfolio.index'))
+        return redirect(url_for('securities.index'))
     title = "Authentication"
     login_form = LoginForm()
-    return render_template('pages-login.html', page_title=title, form=login_form)
+    return render_template('user/pages-login.html', page_title=title, form=login_form)
 
 @blueprint.route('/process-login', methods=['POST'])
 def process_login():
@@ -23,7 +23,7 @@ def process_login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             flash('Welcome on site')
-            return redirect(url_for('portfolio.index'))
+            return redirect(url_for('securities.index'))
 
     flash('Incorrect name or pass')
     return redirect(url_for('user.login'))
@@ -32,4 +32,4 @@ def process_login():
 def logout():
     logout_user()
     flash('Success logout')
-    return redirect(url_for('portfolio.index'))
+    return redirect(url_for('securities.index'))
