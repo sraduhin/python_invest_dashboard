@@ -1,4 +1,3 @@
-from re import M
 from flask import Flask
 from flask_login import LoginManager
 from webapp.user.views import blueprint as user_blueprint

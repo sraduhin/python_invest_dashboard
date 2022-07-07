@@ -22,7 +22,6 @@ def get_positions():
                 expected_yield = normalize_floatings(position.expected_yield)
                 average_price = normalize_floatings(position.average_position_price)
                 current_price = normalize_floatings(position.current_price)
-                lots = normalize_floatings(position.quantity_lots)
                 save_positions(portfolio_id, instrument_id, amount, expected_yield,
                                 average_price, current_price, lots)
 
