@@ -18,5 +18,5 @@ def save_news(title, url, published):
     news_exists = News.query.filter(News.url == url).count()
     if not news_exists:
         news_news = News(title=title, url=url, published=published)
-        db.session.add()
+        db.session.add(news_news)
         db.session.commit()

@@ -3,6 +3,7 @@ from flask_login import LoginManager
 from webapp.user.views import blueprint as user_blueprint
 from webapp.admin.views import blueprint as admin_blueprint
 from webapp.dashboard.views import blueprint as dashboard_blueprint
+from webapp.news.views import blueprint as news_blueprint
 from webapp.db import db
 from webapp.user.models import User
 from flask_migrate import Migrate
@@ -18,6 +19,7 @@ def create_app():
     login_manager.login_view = 'user.login'
     app.register_blueprint(user_blueprint)
     app.register_blueprint(admin_blueprint)
+    app.register_blueprint(news_blueprint)
     app.register_blueprint(dashboard_blueprint)
 
     @login_manager.user_loader

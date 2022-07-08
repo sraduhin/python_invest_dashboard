@@ -23,7 +23,7 @@ def get_positions():
                 average_price = normalize_floatings(position.average_position_price)
                 current_price = normalize_floatings(position.current_price)
                 save_positions(portfolio_id, instrument_id, amount, expected_yield,
-                                average_price, current_price, lots)
+                                average_price, current_price)
 
 
 if __name__ == '__main__':
