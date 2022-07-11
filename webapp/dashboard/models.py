@@ -26,7 +26,7 @@ class Position(db.Model):
     current_price = db.Column(db.Float, nullable=False)
 
     def __repr__(self):
-        return '<Position {} {}>'.format(self.amount, self.current_price)
+        return '<Position {} {} {} {}>'.format(self.portfolio_id, self.instrument_id, self.current_price, self.average_price)
 
 
 class Instrument(db.Model):
