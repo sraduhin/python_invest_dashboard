@@ -20,6 +20,7 @@ class Position(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolio.id'), index=True, nullable=False)
     instrument_id = db.Column(db.String, db.ForeignKey('instrument.id'), index=True, nullable=False)
+    figi = db.Column(db.String, nullable=True)
     amount = db.Column(db.Float, nullable=False)
     expected_yield = db.Column(db.Float, nullable=False)
     average_price = db.Column(db.Float, nullable=False)
