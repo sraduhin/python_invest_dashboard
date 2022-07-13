@@ -4,6 +4,8 @@ from flask_login import current_user, login_user, logout_user
 
 from webapp.db import db 
 
+from webapp.dashboard.get_portfolios import get_portfolios
+from webapp.dashboard.get_positions import get_positions
 from webapp.user.forms import LoginForm, RegistrationForm
 from webapp.user.models import User
 
@@ -25,6 +27,8 @@ def process_login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             flash('Welcome on site')
+            get_portfolios()
+            get_positions()
             return redirect(url_for('dashboard.index'))
 
     flash('Incorrect name or pass')
@@ -48,7 +52,7 @@ def register():
 def process_reg():
     form = RegistrationForm()
     if form.validate_on_submit():
-        new_user = User(name=form.name.data, username=form.username.data, email=form.email.data, role='user')
+        new_user = User(name=form.name.data, username=form.username.data, email=form.email.data, api_key=form.api_key.data, role='user')
         new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()

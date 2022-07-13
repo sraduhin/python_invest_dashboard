@@ -2,6 +2,7 @@ from webapp.db import db
 
 class Portfolio(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
     account_id = db.Column(db.String, nullable=True)
     expected_yield = db.Column(db.Float, nullable=True)
     total_shares = db.Column(db.Float, nullable=True)

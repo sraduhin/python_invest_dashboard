@@ -1,7 +1,5 @@
-from requests import NullHandler
-from webapp.dashboard.models import Instrument, Portfolio, Position
-from webapp.dashboard.normalize import get_price_in_base_currency, get_total_amount
-import json
+from webapp.dashboard.models import Portfolio
+from webapp.dashboard.normalize import get_price_in_base_currency
 
 
 def get_position_row(account_id):

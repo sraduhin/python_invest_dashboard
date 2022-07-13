@@ -6,5 +6,5 @@ from webapp.dashboard.get_positions import get_positions
 app = create_app()
 with app.app_context():
     get_assets()
-    get_portfolios()
-    get_positions()
+    #get_portfolios()
+    #get_positions()

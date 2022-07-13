@@ -77,6 +77,11 @@
                     </div>
 
                     <div class="col-12">
+                      <label for="yourUsername" class="form-label">{{ form.api_key.label }}</label>
+                      {{ form.api_key() }}
+                    </div>
+
+                    <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">{{ form.submit }}</button>
                     </div>
                     <div class="col-12">

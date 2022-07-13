@@ -1,13 +1,16 @@
 from tinkoff.invest import Client
-from flask import current_app
+from flask_login import current_user
+
+
 from webapp.dashboard.normalize import normalize_floatings
 from webapp.dashboard.models import db
 from webapp.dashboard.models import Portfolio, Instrument, Position
 
+
 def get_positions():
     """Функция извлекает из API данные для аккаунтов с уровнем доступа:
     1: full access; 2: read-only"""
-    TOKEN = current_app.config['TINKOFF_API_KEY']
+    TOKEN = current_user.api_key
     with Client(TOKEN) as client:
         portfolios = Portfolio.query.all()
         print(portfolios)

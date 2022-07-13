@@ -16,6 +16,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Your email',validators=[DataRequired(), Email()], render_kw={"class": "form-control"})
     password = PasswordField('Your password',validators=[DataRequired()], render_kw={"class": "form-control"})
     password2 = PasswordField('Repeat password please',validators=[DataRequired(), EqualTo('password')], render_kw={"class": "form-control"})
+    api_key = StringField('Fill your API Key',validators=[], render_kw={"class": "form-control"})
     submit = SubmitField('Create Account',render_kw={"class":"btn btn-primary"})
 
     def validate_username(self, username):

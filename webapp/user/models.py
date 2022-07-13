@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(64), unique=False)
     username = db.Column(db.String(32), index=True, unique=True)
     password = db.Column(db.String(128))
+    api_key = db.Column(db.String(128))
     role = db.Column(db.String(10), index=True)
     email = db.Column(db.String(50))
 

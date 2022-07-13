@@ -45,6 +45,7 @@
     <!-- End Sales Card -->
 
     <!-- Revenue Card -->
+    {% if current_user.is_authenticated %}
     <div class="col-xxl-4 col-md-6">
       <div class="card info-card revenue-card">
         <div class="filter">
@@ -61,7 +62,6 @@
             <li><a class="dropdown-item" href="#">Chicken Chicken</a></li>
           </ul>
         </div>
-
         <div class="card-body">
           <h5 class="card-title">Chicken <span>| Chicken Chicken</span></h5>
 
@@ -83,6 +83,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
     <!-- End Revenue Card -->
 
     <!-- Customers Card -->
@@ -222,7 +223,7 @@
             <li><a class="dropdown-item" href="#">Tinkoff Unt.</a></li>
           </ul>
         </div>
-
+        {% if current_user.is_authenticated %}
         <div class="card-body">
           <h5 class="card-title">
             {{ context.securities.title }}
@@ -251,6 +252,7 @@
             </tbody>
           </table>
         </div>
+        {% endif %}
       </div>
     </div>
     <!-- End Recent Sales -->
@@ -408,7 +410,8 @@
         <li><a class="dropdown-item" href="#">Tinkoff Unt.</a></li>
       </ul>
     </div>
-
+    
+    {% if current_user.is_authenticated %}
     <div class="card-body">
       <h5 class="card-title">
         {{ context.sectors.title }}
@@ -431,7 +434,7 @@
               {
                 name: "Access From",
                 type: "pie",
-                radius: ["20%", "70%"],
+                radius: ["30%", "60%"],
                 avoidLabelOverlap: false,
                 label: {
                   show: false,
@@ -454,6 +457,8 @@
         });
       </script>
     </div>
+    
+    {% endif %}
   </div>
   <!-- End Round Diagram Traffic -->
 
