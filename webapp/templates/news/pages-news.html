@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block page_title %}
+  <title>{{ context.page_title }}</title>
+{% endblock %}
+{% block news %}
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>{{ context.page_title }}</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url_for('dashboard.index')}}">Home</a></li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">{{ context.page_title }}</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        {% for new in context['news'] %}
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><a href="{{ url_for('news.single_news', news_id=new.id) }}">{{ new.title }}></a></h5>
+              <p>{{ new.published.strftime('%d.%m.%Y %H:%m') }}</p>
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  {% endblock %}
