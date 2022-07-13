@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from webapp.dashboard.models import Portfolio
 from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors
 from webapp.dashboard.currencies import get_currencies
 from flask_login import current_user
@@ -18,7 +19,7 @@ def index():
     
     if current_user.is_authenticated:
         securities_block_title = 'Securities'
-        account_id = '2000377867'
+        account_id = Portfolio.query.filter(Portfolio.user_id==current_user.id).first().account_id
         context['securities'] = {}
         context['securities']['title'] = securities_block_title
         context['securities']['account_id'] = account_id
