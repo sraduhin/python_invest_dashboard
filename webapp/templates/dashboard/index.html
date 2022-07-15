@@ -73,7 +73,11 @@
             </div>
             <div class="ps-3">
               <h6>${{ context.portfolio.balances.balance }}</h6>
-              <span class="text-success small pt-1 fw-bold">
+              {% if context.portfolio.balances.profit_by_percent < 0 %}
+              <span class="text-danger small pt-1 fw-bold">
+                {% else %}
+                <span class="text-success small pt-1 fw-bold">
+                  {% endif %}
                 {{ context.portfolio.balances.profit_by_percent }}%
               </span>
               <span class="text-muted small pt-2 ps-1">chicken</span>
@@ -152,7 +156,7 @@
               new ApexCharts(document.querySelector("#reportsChart"), {
                 series: [{
                   name: 'Capitalization',
-                  data: {{ values }},
+                  data: {{ context.history.values[0] | safe }},
                 }, {
                   name: 'Profit',
                   data: [11, 32, 45, 32, 34, 52, 41]

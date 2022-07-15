@@ -1,6 +1,7 @@
 from webapp.dashboard.models import Portfolio
 from webapp.dashboard.normalize import get_price_in_base_currency
 from webapp.dashboard.currencies import get_currencies
+from webapp.dashboard.get_historycal_data import get_historycal_data
 
 
 def get_position_row(account_id):
@@ -56,8 +57,13 @@ def get_money_by_sectors(account_id, currency='usd'):
 
 def get_currencies_row(base_currency):
     row = get_currencies(base_currency)
-    print(row)
     row = {key: round(1/ value, 2) for (key, value) in row.items()}
-    print(row)
     return row
 
+
+def get_historycal_row():
+    rows = get_historycal_data()
+    values = [row['values']['total'] for row in rows]
+    dates = [row['date'] for row in rows]
+    print(values[-7:], dates[-7:])
+    return [values[-7:], dates[-7:]]

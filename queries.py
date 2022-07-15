@@ -1,4 +1,4 @@
-from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors, get_currencies_row
+from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors, get_currencies_row, get_historycal_row
 from webapp.dashboard.currencies import get_currencies
 
 
@@ -11,4 +11,4 @@ if __name__ == '__main__':
         #get_money_by_sectors('2000377867')
         #get_currencies_row('RUB')
         
-        print(get_currencies('RUB'))
+        get_historycal_row()
