@@ -63,7 +63,7 @@
           </ul>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Chicken <span>| Chicken Chicken</span></h5>
+          <h5 class="card-title">Total <span>| Chicken Chicken</span></h5>
 
           <div class="d-flex align-items-center">
             <div
@@ -74,8 +74,7 @@
             <div class="ps-3">
               <h6>${{ context.portfolio.balances.balance }}</h6>
               <span class="text-success small pt-1 fw-bold">
-                {{ context.portfolio.balances.profit /
-                context.portfolio.balances.balance * 100 }}%
+                {{ context.portfolio.balances.profit_by_percent }}%
               </span>
               <span class="text-muted small pt-2 ps-1">chicken</span>
             </div>
@@ -386,7 +385,7 @@
           {% for key, value in context.currencies.positions.items() %}
           <tr>
             <td>{{ key }}</td>
-            <td>{{ 1 / value }}</td>
+            <td>{{ value }}</td>
           </tr>
           {% endfor %}
         </tbody>

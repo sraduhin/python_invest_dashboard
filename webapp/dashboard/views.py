@@ -1,13 +1,15 @@
 from flask import Blueprint, render_template
 from webapp.dashboard.models import Portfolio
-from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors
-from webapp.dashboard.currencies import get_currencies
+from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors, get_currencies_row
+from webapp.dashboard.get_assets import get_assets
 from flask_login import current_user
 
 blueprint = Blueprint('dashboard', __name__)
 
 @blueprint.route('/')
 def index():
+    get_assets()
+
     context = {'page_title': 'InvestDashboard'}
 
     currencies_block_title = 'Currencies'
@@ -15,11 +17,11 @@ def index():
     context['currencies'] = {}
     context['currencies']['title'] = currencies_block_title
     context['currencies']['base_currency'] = base_currency
-    context['currencies']['positions'] = get_currencies(base_currency)
+    context['currencies']['positions'] = get_currencies_row(base_currency)
     
     if current_user.is_authenticated:
         securities_block_title = 'Securities'
-        account_id = Portfolio.query.filter(Portfolio.user_id==current_user.id).first().account_id
+        account_id = Portfolio.query.filter(Portfolio.user_id==current_user.id).all()[0].account_id
         context['securities'] = {}
         context['securities']['title'] = securities_block_title
         context['securities']['account_id'] = account_id

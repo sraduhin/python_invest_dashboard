@@ -1,5 +1,6 @@
 from webapp.dashboard.models import Portfolio
 from webapp.dashboard.normalize import get_price_in_base_currency
+from webapp.dashboard.currencies import get_currencies
 
 
 def get_position_row(account_id):
@@ -24,7 +25,9 @@ def get_balance_by_account(account_id, currency='usd'):
     balance = portfolio.total_shares + portfolio.total_bonds + portfolio.total_etf + portfolio.total_currencies + portfolio.total_futures
     profit = balance * portfolio.expected_yield / 100
     portfolio_balances = {'balance': balance, 'profit': profit}
-    portfolio_balances = {key: get_price_in_base_currency(value, currency) for (key, value) in portfolio_balances.items()}
+    portfolio_balances = {key: round(get_price_in_base_currency(value, currency), 2) for (key, value) in portfolio_balances.items()}
+    portfolio_balances['profit_by_percent'] = round((profit / balance * 100), 2)
+    print(portfolio_balances)
     return portfolio_balances
 
 
@@ -49,3 +52,12 @@ def get_money_by_sectors(account_id, currency='usd'):
     for key, value in money_by_sectors.items():
         money_by_sectors_list.append({'value': value, 'name': key})
     return money_by_sectors_list
+
+
+def get_currencies_row(base_currency):
+    row = get_currencies(base_currency)
+    print(row)
+    row = {key: round(1/ value, 2) for (key, value) in row.items()}
+    print(row)
+    return row
+

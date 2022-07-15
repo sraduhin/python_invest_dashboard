@@ -1,6 +1,4 @@
 from datetime import datetime, timedelta
-import locale
-import platform
 
 from bs4 import BeautifulSoup
 

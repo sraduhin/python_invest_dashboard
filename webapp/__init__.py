@@ -8,6 +8,7 @@ from webapp.db import db
 from webapp.user.models import User
 from flask_migrate import Migrate
 
+
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
@@ -20,6 +21,7 @@ def create_app():
     app.register_blueprint(user_blueprint)
     app.register_blueprint(admin_blueprint)
     app.register_blueprint(dashboard_blueprint)
+    
     app.register_blueprint(news_blueprint)
 
     @login_manager.user_loader
