@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from webapp.dashboard.models import Portfolio
-from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors, get_currencies_row, get_historycal_row
+from webapp.dashboard.queries import get_position_row, get_balance_by_account, get_money_by_sectors, get_currencies_row
 from webapp.dashboard.get_assets import get_assets
 from flask_login import current_user
 
@@ -35,12 +35,5 @@ def index():
         context['sectors']['title'] = round_diagramm_title
         context['sectors']['account_id'] = account_id
         context['sectors']['percentage'] = get_money_by_sectors(account_id)
-        
-        history_title = 'Historical portfolio data'
-        context['history'] = {}
-        context['history']['title'] = history_title
-        context['history']['account_id'] = account_id
-        context['history']['values'] = get_historycal_row()
-        context['history']['dates'] = get_historycal_row()
 
     return render_template('dashboard/index.html', context=context)

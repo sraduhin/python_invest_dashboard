@@ -63,7 +63,7 @@
           </ul>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Total <span>| Chicken Chicken</span></h5>
+          <h5 class="card-title">Chicken <span>| Chicken Chicken</span></h5>
 
           <div class="d-flex align-items-center">
             <div
@@ -73,12 +73,8 @@
             </div>
             <div class="ps-3">
               <h6>${{ context.portfolio.balances.balance }}</h6>
-              {% if context.portfolio.balances.profit_by_percent < 0 %}
-              <span class="text-danger small pt-1 fw-bold">
-                {% else %}
-                <span class="text-success small pt-1 fw-bold">
-                  {% endif %}
-                {{ context.portfolio.balances.profit_by_percent }}%
+              <span class="text-success small pt-1 fw-bold">
+                {{ context.portfolio.balances.profit }}%
               </span>
               <span class="text-muted small pt-2 ps-1">chicken</span>
             </div>
@@ -156,7 +152,7 @@
               new ApexCharts(document.querySelector("#reportsChart"), {
                 series: [{
                   name: 'Capitalization',
-                  data: {{ context.history.values[0] | safe }},
+                  data: {{ values }},
                 }, {
                   name: 'Profit',
                   data: [11, 32, 45, 32, 34, 52, 41]
@@ -403,11 +399,22 @@
       <a class="icon" href="#" data-bs-toggle="dropdown"
         ><i class="bi bi-three-dots"></i
       ></a>
+      <select onchange="sendServer(this)">
+        
+        {% for item in ['Tinkoff main', 'Tinkoff IIS', 'Tinkkoff Unt'] %}
+        <option name="{{ item.name }}" value="{{ item.id }}">item</option>
+        {% endfor %}
+      </select>
+      <!-- UTILS.JS
+       sendServer(obj) {
+          fetch('url' + obj.id).then(response => {)}).catch(e => {})
+       } -->
+      <select></select>
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
         <li class="dropdown-header text-start">
           <h6>Account</h6>
         </li>
-
+        
         <li><a class="dropdown-item" href="#">Tinkoff main</a></li>
         <li><a class="dropdown-item" href="#">Tinkoff IIS</a></li>
         <li><a class="dropdown-item" href="#">Tinkoff Unt.</a></li>
