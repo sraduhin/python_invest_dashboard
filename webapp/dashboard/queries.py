@@ -59,3 +59,11 @@ def get_currencies_row(base_currency):
     row = get_currencies(base_currency)
     row = {key: round(1/ value, 2) for (key, value) in row.items()}
     return row
+
+
+def get_historycal_row():
+    rows = get_historycal_data()
+    values = [row['values']['total'] for row in rows]
+    dates = [row['date'] for row in rows]
+    print(values[-7:], dates[-7:])
+    return [values[-7:], dates[-7:]]
