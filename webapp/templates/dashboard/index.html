@@ -66,9 +66,7 @@
           <h5 class="card-title">Chicken <span>| Chicken Chicken</span></h5>
 
           <div class="d-flex align-items-center">
-            <div
-              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
-            >
+            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
               <i class="bi bi-currency-dollar"></i>
             </div>
             <div class="ps-3">
@@ -93,9 +91,7 @@
     <div class="col-xxl-4 col-xl-12">
       <div class="card info-card customers-card">
         <div class="filter">
-          <a class="icon" href="#" data-bs-toggle="dropdown"
-            ><i class="bi bi-three-dots"></i
-          ></a>
+          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li class="dropdown-header text-start">
               <h6>Chicken</h6>
@@ -220,10 +216,9 @@
             <li class="dropdown-header text-start">
               <h6>Account</h6>
             </li>
-
-            <li><a class="dropdown-item" href="#">Tinkoff main</a></li>
-            <li><a class="dropdown-item" href="#">Tinkoff IIS</a></li>
-            <li><a class="dropdown-item" href="#">Tinkoff Unt.</a></li>
+            {% for account in context['securities']['accounts'] %}
+            <li><a class="dropdown-item" href="{{ url_for('dashboard.index', account_id=account.account_id) }}">{{ account.account_id }}</a></li>
+            {% endfor %}
           </ul>
         </div>
         {% if current_user.is_authenticated %}

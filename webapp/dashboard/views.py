@@ -6,8 +6,10 @@ from flask_login import current_user
 
 blueprint = Blueprint('dashboard', __name__)
 
-@blueprint.route('/')
-def index():
+@blueprint.route('/<int:account_id>') # 2000377867  2109627600
+#@blueprint.route('/')
+def index(account_id):
+#def index():
     get_assets()
 
     context = {'page_title': 'InvestDashboard'}
@@ -21,10 +23,11 @@ def index():
     
     if current_user.is_authenticated:
         securities_block_title = 'Securities'
-        account_id = Portfolio.query.filter(Portfolio.user_id==current_user.id).all()[0].account_id
+        accounts = Portfolio.query.filter(Portfolio.user_id==current_user.id).all()
         context['securities'] = {}
         context['securities']['title'] = securities_block_title
         context['securities']['account_id'] = account_id
+        context['securities']['accounts'] = accounts
         context['securities']['positions'] = get_position_row(account_id)
 
         context['portfolio'] = {}

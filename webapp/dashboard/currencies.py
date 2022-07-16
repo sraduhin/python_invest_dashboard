@@ -5,8 +5,8 @@ import webapp.config as config
 def get_currencies(base, labels=['USD', 'EUR', 'GBP', 'JPY', 'TRY']):
     base = base.upper()
     # Сохраним запросы API
-    currencies = {'USD': 0.015873, 'EUR': 0.014775, 'GBP': 0.012637, 'JPY': 2.071604, 'TRY': 0.26239}
-    return currencies
+    # currencies = {'USD': 0.015873, 'EUR': 0.014775, 'GBP': 0.012637, 'JPY': 2.071604, 'TRY': 0.26239}
+    # return currencies
     """
     Фукнция должна вернуть соотношение валютных пар RUBUSD, RUBEUR, RUBGBP, RUBJPY, RUBTRY
     в формате:
